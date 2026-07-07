@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ─────────────────────────────────────────────────────────────
+   Tsahirmaa Boutique — design tokens
+   Palette: porcelain / ink-violet / mulberry wine / mauve / sand
+   Type:    Prata (display, Cyrillic didone) · Manrope (UI/body)
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  --background: #fbf9f7; /* porcelain */
+  --foreground: #211d24; /* ink violet-black */
+  --surface: #ffffff;
+  --muted: #efeae5; /* sand */
+  --muted-foreground: #7d7379;
+  --border: #e7e0da;
+  --accent: #6e2e4b; /* mulberry wine */
+  --accent-foreground: #fbf9f7;
+  --accent-soft: #f3e7ec; /* petal wash */
+  --mauve: #c8a9b6;
+  --success: #3f7d5c;
+  --danger: #a5343e;
+  --ring: #6e2e4b;
+
+  --radius: 1rem;
+
+  --font-display: "Prata", "Georgia", serif;
+  --font-sans: "Manrope", "Segoe UI", system-ui, sans-serif;
+}
+
+.dark {
+  --background: #181419;
+  --foreground: #f4f0ee;
+  --surface: #221d24;
+  --muted: #2b242d;
+  --muted-foreground: #a79ba1;
+  --border: #352d38;
+  --accent: #d993b4; /* petal pink */
+  --accent-foreground: #241019;
+  --accent-soft: #33222c;
+  --mauve: #8d6f7e;
+  --success: #7fc9a4;
+  --danger: #e58893;
+  --ring: #d993b4;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-soft: var(--accent-soft);
+  --color-mauve: var(--mauve);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+  --color-ring: var(--ring);
+
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 0.5rem);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Editorial eyebrow label — signature utility */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
